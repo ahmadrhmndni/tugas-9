@@ -16,7 +16,7 @@
 							{!! nl2br($produk->deskripsi) !!}
 						</p>
 						<p>
-							<img src="{{url("public/$produk->foto")}}" height="155px" width = "315px">
+							<img src="{{url("public/$produk->foto")}}" alt="" height="185px" width="345px">
 						</p>
 					</div>
 				</div>

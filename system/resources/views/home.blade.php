@@ -27,7 +27,7 @@
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section class="d-flex align-items-center justify-content-center">
+  <section id ="hero" class="d-flex align-items-center justify-content-center">
     <div class="container position-relative">
       <h1>Jual Beli Laptop Online</h1>
       <h2>Salah satu tempat jual beli Laptop terpecaya Yang Ada Di KETAPANG</h2>
@@ -74,27 +74,30 @@ Ukuran Layar  14.1 inch</p>
     <section class="team section-bg">
       <div class="container">
 
-        <div class="section-title">
-          <h2>Produk Yang Tersedia</h2>
-          <p>Kami Juga Menyediakan Beberapa Jenis Laptop Yang Kami Rekomendasikan Yang Mungkin Sesuai Kebutuhan Anda, Apalagi Anda Seorang Siswa Yang Mungkin Suka Bermain Game Ataupun Anda Mahasiswa IT (INFORMATIKA) Yang Senang Ngoding  Atau Mungkin Yang Sedang Anda Cari Sekarang</p>
-        </div>
-
         <div class="row">
-          @foreach($list_produk as $produk)
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-              <div class="member-img">
-                <a href="{{url('detail', $produk->id)}}">
-                <img src="{{url('public')}}/assets/img/team/team-1.jpg" class="img-fluid" alt="">
+          @foreach($list as $item)
+           <div class="col-lg-3 col-md-3 mt-4 d-flex align-items-stretch">
+             <div class="member">
+                <div class="member-img">
+                    <a href="{{url('detail', $item->id)}}">
+                       <img src="{{url("public/$item->foto")}}" alt="" class="img-fluid">
+                    </div>
+                <div class="member-info">
+                    <h5>{{$item->nama}}</h5>
+                    <span>Rp {{number_format($item->harga)}}</span>
+                    </a>
+                  </div>
+                </div>
               </div>
-              <div class="member-info">
-                <h4>{{$produk->nama}}</h4>
-                <span>{{number_format($produk->harga)}}</span>
-                </a>
-              </div>
+          @endforeach
+        </div>
+        <div class="row">
+          <div class="col-md-12 mt-5">
+            <div class="float-right">
+              {{$list->links()}}
             </div>
           </div>
-            @endforeach
+       </div>
 
           
         </div>
@@ -104,75 +107,6 @@ Ukuran Layar  14.1 inch</p>
 
     <div class="card my-3">
   <div class="container">
-    <h4><center>Halaman Produk</h4></center>
-  </div>
-  <div class="card-body">
-    <div class="container">
-      <div class="col-12">
-        <div class="row">
-
-<!-- Daftar kategori ( Bisa di hapus dari sini) -->
-       <div class="card my-3">
-  <div class="container">
-    <h4>Halaman Produk</h4>
-  </div>
-  <div class="card-body">
-    <div class="container">
-      <div class="col-12">
-        <div class="row">
-
-<!-- Daftar kategori ( Bisa di hapus dari sini) -->
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title text-primary">Asus</h5>
-              <p class="card-text text-muted"> Laptop Asus disini kami menyediakan banyak model dengan berbagai macam spesifikasi tentunya juga terjangkau, Selain itu kamu juga menyediakan laptop asus gaming yaitu Asus ROG</p>
-              <a href="{{url('admin/produk')}}" class="btn btn-primary">Lebih Banyak Barang</a>
-            </div>
-          </div>
-        </div>
-<!-- sampai sini -->
-
-<!-- Daftar kategori ( Bisa di hapus dari sini) -->
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title text-primary">Acer </h5>
-              <p class="card-text text-muted">Selain Laptop asus kita juga menyediakan berbagai macam jenis laptop Acer harga murah kualitas bagus yang pastinya sangan cocok sekali untuk klian para pelajar maupun mahasiswa</p>
-              <a href="{{url('admin/produk')}}" class="btn btn-primary">Lebih Banyak Barang</a>
-            </div>
-          </div>
-        </div>
-<!-- sampai sini -->
-
-<!-- Daftar kategori ( Bisa di hapus dari sini) -->
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title text-primary">Dell</h5>
-              <p class="card-text text-muted">Selain 2 Produk tadi kita juga menyediakan Laptop Dell laptop dell ini juga tidak kalah bagusnya dibandingkan laptop yang lain</p>
-              <a href="{{url('admin/produk')}}" class="btn btn-primary">Lebih Banyak Barang</a>
-            </div>
-          </div>
-        </div>
-<!-- sampai sini -->
-
-<!-- Daftar kategori ( Bisa di hapus dari sini) -->
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title text-primary">HP</h5>
-              <p class="card-text text-muted">Laptop jenis HP juga tersedia loh ditoko online kita buruan di cek.</p>
-              <a href="{{url('admin/produk')}}" class="btn btn-primary">Lebih Banyak Barang</a>
-            </div>
-          </div>
-        </div>
-<!-- sampai sini -->
-
-      </div>
-      </div>
-    </div>
-  </div>
 </div>
 
 
