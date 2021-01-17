@@ -7,6 +7,8 @@ use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\ClientProdukController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SettingController;
+use App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,10 +29,14 @@ Route::get('produk' , [HomeController::class, 'showProduk']);
 Route::get('kategori' , [HomeController::class, 'showKategori']);
 Route::get('template' , [HomeController::class, 'showTemplate']);
 Route::get('admin/beranda' ,[HomeController::class, 'showAdminBeranda']);
+Route::get('admin/beranda{status}' ,[HomeController::class, 'showAdminBeranda']);
 Route::get('admin/kategori' , [HomeController::class, 'showAdminKategori']);
+Route::get('setting', [SettingController::class, 'index']);
+Route::post('setting', [SettingController::class, 'store']);
 
 Route::get('registrasi' , [AuthController::class, 'showRegistrasi']);
 Route::get('login' , [AuthController::class, 'showLogin']);
+Route::post('login' , [AuthController::class, 'loginProcess']);
 Route::get('admin/registrasi' , [AuthController::class, 'showAdminRegistrasi']);
 
 
@@ -71,19 +77,23 @@ Route::get('user/{user}/edit' , [UserController::class, 'edit']);
 Route::put('user/{user}' , [UserController::class, 'update']);
 Route::delete('user/{user}' , [UserController::class, 'destroy']);
 
-Route::get('admin/login' , [AuthController::class, 'showAdminLogin']);
-Route::post('admin/login' , [AuthController::class, 'loginProcess']);
+// Route::get('admin/login' , [AuthController::class, 'showAdminLogin']);
+// Route::post('admin/login' , [AuthController::class, 'loginProcess']);
 Route::get('admin/logout' , [AuthController::class, 'logout']);
 
 Route::get('admin/registrasi' , [AuthController::class, 'showRegistrasi']);
 Route::post('admin/registrasi' , [AuthController::class, 'registrasiProcess']);
 
 
-
 Route::get('home' , [ClientProdukController::class, 'showIndex']);
 Route::get('produk' , [ClientProdukController::class, 'showProduk']);
 Route::get('kategori' , [ClientProdukController::class, 'showKategori']);
 Route::get('detail/{produk}', [ClientProdukController::class, 'showDetail']);
+Route::get('checkout/{produk}', [ClientProdukController::class, 'showCheckout']);
+Route::get('test-ajax/{produk}', [ClientProdukController::class, 'testAjax']);
+
 
 Route::get('test-collection', [HomeController::class, 'testCollection']);
+Route::get('test-ajax', [HomeController::class, 'testAjax']);
 
+Route::get('admin/product' , [ProductController::class, 'index']);

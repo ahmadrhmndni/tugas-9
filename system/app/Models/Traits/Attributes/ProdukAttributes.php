@@ -23,11 +23,13 @@ trait ProdukAttributes {
 
  	 function handleDelete(){
  	 	$foto = $this->foto;
+ 	 	if($foto){
  	 	$path = public_path($foto);
  	 	if(file_exists($path)){
  	 		unlink($path);
  	 	}
- 	 	//return true;
- 	 }
+ 	 	return true;
+ 	 	}
+ 	}
 }
 // dd($path, file_exists($path));

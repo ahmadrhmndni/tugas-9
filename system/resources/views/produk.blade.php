@@ -66,12 +66,16 @@
                 <div class="member-img">
                     <a href="{{url('detail', $item->id)}}">
                        <img src="{{url("public/$item->foto")}}" alt="" class="img-fluid">
-                    </div>
+                </div>
+                     </a>
                 <div class="member-info">
                     <h5>{{$item->nama}}</h5>
-                    <span>Rp {{number_format($item->harga)}}</span>
-                    </a>
-                  </div>
+                    <span>Rp. {{number_format($item->harga)}}</span>
+                    <p> Stok Barang :{{($item->stok)}}</p>
+               </div>
+               <div class="btn-group">
+                 <a href="{{url('test-ajax', $item->id)}}" class="" class="btn btn-dark"><i class="fa fa-info">Pesan Sekarang</i></a>
+               </div>
                 </div>
               </div>
           @endforeach

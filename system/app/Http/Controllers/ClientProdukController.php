@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Produk;
 use App\Models\ClientProduk;
 use App\Models\Kategori;
+use App\Models\Provinsi;
+
 
 
 /**
@@ -18,7 +20,7 @@ class ClientProdukController extends Controller
 		// return view('home', $data);
 		$data['list_produk'] = Produk::all();
 		$list_produk = Produk::all();
-		$data['list'] = Produk::Paginate(8);
+		$data['list'] = Produk::Paginate(12);
 		return view ('home', $data);
 	}
 
@@ -66,7 +68,7 @@ class ClientProdukController extends Controller
 		// dd($map);
 
 
-		$data['list'] = Produk::Paginate(7);
+		$data['list'] = Produk::Paginate(11);
 		return view ('produk', $data);
 		// dd($list_produk);
 	}
@@ -107,6 +109,16 @@ class ClientProdukController extends Controller
 		$data['stok'] = request('stok');
 		return view('produk', $data);
 
+	}
+	function testAjax(){
+		$data['list_provinsi'] = Provinsi::all();
+		return view ('test-ajax', $data);
+
+	}
+
+	function showCheckout(Produk $produk){
+		$data['produk'] = $produk;
+		return view('checkout', $data);
 	}
 
 	
