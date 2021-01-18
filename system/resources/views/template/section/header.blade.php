@@ -43,7 +43,7 @@
           <a href="{{url('setting')}}" class="dropdown-item">
             <i class="fa fa-cog"></i> Setting
           </a>
-          <a href="{{url('login')}}" class="dropdown-item">
+          <a href="{{url('admin/logout')}}" class="dropdown-item">
             <i class="fa fa-users mr-2"></i>Log-Out
           </a>
     </ul>
